@@ -1,2 +1,7 @@
 .gradle
 .idea
+.vscode
+build/
+bin/
+.build/libs
+/build/
