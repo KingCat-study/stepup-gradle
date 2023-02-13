@@ -41,7 +41,7 @@ jobs:
       run: cp ./build/libs/*.jar ./deploy/
 
     - name: Make zip file
-      run: zip -r -qq -jk ./stepup-gradle-build.zip ./deploy
+      run: zip -r -qq -j ./stepup-gradle-build.zip ./deploy
 
     - name: Deliver to AWS S3
       env:
