@@ -61,6 +61,6 @@ jobs:
         aws deploy create-deployment \
         --application-name stepup-gradle-code-deploy \
         --deployment-group-name stepup-gradle-server \
-        --file-exist-behavior OVERWRITE \
+        --file-exists-behavior OVERWRITE \
         --s3-location bucket=stepup-springboot-webservice,bundleType=zip,key=stepup-gradle-build.zip \
         --region ap-northeast-2
