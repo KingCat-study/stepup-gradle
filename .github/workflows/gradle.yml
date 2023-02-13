@@ -48,7 +48,7 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
-        aws s3 cp \
+        aws s3 cp \정
         --region ap-northeast-2 \
         --acl private \
         ./stepup-gradle-build.zip s3://stepup-springboot-webservice/
