@@ -33,3 +33,20 @@ jobs:
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: clean build
+
+
+    - name: Copy Jar to Repository
+      run: cp ./build/libs/*.jar ./home/ec2-user/app/step1
+
+    - name: Make zip file
+      run: zip -r -qq -jk ./stepup-gradle-build.zip ./home/ec2-user/app/step1
+
+    - name: Deliver to AWS S3
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      run: |
+        aws s3 cp \
+        --region ap-northeast-2 \
+        --acl private \
+        ./stepup-gradle-build.zip s3://stepup-springboot-webservice/
