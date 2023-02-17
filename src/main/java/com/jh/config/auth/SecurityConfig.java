@@ -24,6 +24,7 @@ public class SecurityConfig {
                             "/css/**",
                             "/images/**",
                             "/js/**",
+                            "/profile",
                             "/h2-console/**").permitAll()
                     .antMatchers("/api/v1/**").hasRole(Role.USER.name())
                     .anyRequest().authenticated()
